@@ -1,0 +1,18 @@
+- task: FortifyScanCentralSAST@7
+  env:
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+  inputs:
+    scanCentralCtrlUrl: 'https://fortify.cyberxdemo.com:10443/scancentral-ctrl/'
+    scanCentralClientToken: '$(ScanCentral.ClientToken)'
+    sscCiToken: '$(ScanCentral.SscCiToken)'
+    uploadToSSC: true
+    applicationName: '$(ssc_app_name)'
+    applicationVersion: '$(ssc_app_version)'
+    buildFailureCriteria: '[fortify priority order]:critical AND category:sql injection'
+    taskResultForBuildFailureCriteria: 'FAIL'
+    buildTool: 'mvn'
+    buildCommand: 'clean package'
+    block: true
+    outputFile: 'IWA-Java-SC-SAST32.1-Plugin-Linux.fpr'
+    logFile: 'IWA-Java-SC-SAST32.1-Plugin-Linux.log'
+    overwrite: false

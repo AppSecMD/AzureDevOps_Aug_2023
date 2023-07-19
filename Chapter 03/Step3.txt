@@ -1,0 +1,7 @@
+wget https://fortify.cyberxdemo.com:8443/ssc/downloads/Fortify_ScanCentral_Client_23.1.0_x64.zip --progress=bar:force:noscroll
+unzip Fortify_ScanCentral_Client_23.1.0_x64.zip
+chmod +x $(HOME)/work/1/s/bin/scancentral
+wget https://github.com/fortify/fcli/releases/download/v1.2.5/fcli.jar --progress=bar:force:noscroll
+java -jar fcli.jar sc-sast session login -c $(SCANCENTRAL.CLIENTTOKEN) --ssc-url $(SSC_URL) -t $(SSC_CITOKEN) -k
+$(HOME)/work/1/s/bin/scancentral package -bt mvn -o $(SC_SAST_PACKAGE)
+java -jar fcli.jar sc-sast scan start --upload --appversion $(SSC_APP_NAME):$(SSC_APP_VERSION) -v $(SC_SAST_VERSION) -p $(SC_SAST_PACKAGE)

@@ -1,0 +1,20 @@
+- task: FortifySCA@7
+  env:
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+    JAVA_HOME: $(JAVA_HOME_17_X64)
+    PATH: $(JAVA_HOME_17_X64)/bin:/home/vsts/Fortify/Fortify_SCA_and_Apps/bin:$(PATH)
+  inputs:
+    licenseFile: '/home/vsts/work/1/s/fortify.license'
+    applicationType: 'java'
+    buildSourceVersion: '17'
+    buildToolOptions: '/home/vsts/work/1/s/gradlew clean assemble -x test'
+    fortifyBuildId: 'PetClinic-Gradle-SCA32.1-Plugin-Linux'
+    scaVerbose: true
+    scaDebug: true
+    fortifyScanType: 'LocalScan'
+    runFortifyUpload: true
+    fortifyServerName: 'SSC_Server'
+    fortifyApplicationName: '$(ssc_app_name)'
+    fortifyApplicationVersion: '$(ssc_app_version)'
+    fortifyBuildFailureCriteria: '[fortify priority order]:critical or [fortify priority order]:high'
+    taskResultForBuildFailureCriteria: 'FAIL'

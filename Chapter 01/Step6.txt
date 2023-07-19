@@ -1,0 +1,5 @@
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'SonaType_IQ_Server'
+    applicationId: 'iwa-java'
+    stage: 'Build'

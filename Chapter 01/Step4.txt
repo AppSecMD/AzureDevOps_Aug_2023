@@ -1,0 +1,4 @@
+cd /home/vsts/Fortify/Fortify_SCA_and_Apps/plugins/maven/
+tar -zxvf maven-plugin-bin.tar.gz
+cd maven-plugin-bin
+bash ./install.sh

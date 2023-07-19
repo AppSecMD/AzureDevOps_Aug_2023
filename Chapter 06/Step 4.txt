@@ -1,0 +1,4 @@
+echo ${PUBLIC_IP} fortify.cyberxdemo.com > ~/hosts
+echo 127.0.0.1 localhost >>~/hosts
+sudo cp ~/hosts /etc/hosts
+cat /etc/hosts

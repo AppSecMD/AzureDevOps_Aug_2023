@@ -1,0 +1,15 @@
+- task: FortifySCA@7
+  env:
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+  inputs:
+    licenseFile: '/home/vsts/work/1/s/fortify.license'
+    applicationType: 'other'
+    buildToolOptions: 'dotnet build IWA.NET.sln'
+    fortifyBuildId: 'IWA-DotNet-SCA32.1-Plugin-Linux'
+    scaVerbose: true
+    scaDebug: true
+    fortifyScanType: 'LocalScan'
+    runFortifyUpload: true
+    fortifyServerName: 'SSC_Server'
+    fortifyApplicationName: '$(ssc_app_name)'
+    fortifyApplicationVersion: '$(ssc_app_version)'

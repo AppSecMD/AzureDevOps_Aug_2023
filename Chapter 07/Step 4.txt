@@ -1,0 +1,3 @@
+wget https://github.com/fortify/fcli/releases/download/v1.2.5/fcli.jar --progress=bar:force:noscroll
+java -jar fcli.jar sc-dast session login --ssc-url $(SSC_URL) -t $(SSC_CITOKEN) -k
+java -jar fcli.jar sc-dast scan start -S $(SCDAST_CITOKEN) $(SCDAST_SCAN_NAME)

@@ -1,0 +1,19 @@
+- task: FortifySCA@7
+  env: 
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+    JAVA_HOME: $(JAVA_HOME_11_X64)
+    PATH: $(JAVA_HOME_11_X64)/bin:/home/vsts/Fortify/Fortify_SCA_and_Apps/bin:$(PATH)
+  inputs:
+    licenseFile: '/home/vsts/work/1/s/fortify.license'
+    applicationType: 'java'
+    buildSourceVersion: '11'
+    buildAnalyzerParams: '-Dfortify.sca.sqlType=PLSQL -Dfortify.sca.source.version=11'
+    buildToolOptions: 'mvn'
+    fortifyBuildId: 'IWA-Java_Azure_SCA_Plugin'
+    scaVerbose: true
+    scaDebug: true
+    fortifyScanType: 'LocalScan'
+    runFortifyUpload: true
+    fortifyServerName: 'SSC_Server'
+    fortifyApplicationName: '$(ssc_app_name)'
+    fortifyApplicationVersion: '$(ssc_app_version)'
