@@ -1,3 +1,0 @@
-echo Setting up PATH
-echo export PATH=$PATH:/home/vsts/Fortify/Fortify_SCA_and_Apps/bin > ~/env.sh
-source ~/env.sh
