@@ -16,4 +16,5 @@
     fortifyServerName: 'SSC_Server'
     fortifyApplicationName: '$(ssc_app_name)'
     fortifyApplicationVersion: '$(ssc_app_version)'
+    fortifyBuildFailureCriteria: '[fortify priority order]:critical or [fortify priority order]:high'
     taskResultForBuildFailureCriteria: 'FAIL'
