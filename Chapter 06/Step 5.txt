@@ -1,0 +1,7 @@
+- task: FortifyScanCentralDAST@7
+  env:
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+  inputs:
+    scanCentralDastApiUrl: 'https://fortify.cyberxdemo.com:11443/api'
+    scanCentralCiCdToken: '2be86816-e862-4709-abb2-47326a8c034a'
+    sscCiToken: '$(ScanCentral.SscCiToken)'
